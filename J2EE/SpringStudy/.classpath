@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Utility"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/jaxen-1.1-beta-6.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/jaxme-api-0.3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/msv-20030807.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/pull-parser-2.1.10.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/relaxngDatatype-20030807.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/xml-apis-2.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/xpp3-1.1.3.3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/dom4j-1.6.1/xsdlib-20030807.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/dist/spring.jar" sourcepath="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/dist/spring-sources.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/lib/aspectj/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/lib/aspectj/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/lib/cglib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Spring/spring-framework-2.5.6-with-dependencies/lib/jakarta-commons/commons-logging.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

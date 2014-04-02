@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.forum.bean">
+	<class name="com.forum.bean.User" table="cx_user">
+		<id name="id" column="cx_user_oid" type="long">
+			<generator class="sequence" />
+		</id>
+		<property name="username" column="username" type="java.lang.String" ></property>
+		<property name="password" column="password" type="java.lang.String"></property>
+		<property name="nickName" column="nickName" type="java.lang.String"></property>
+		<property name="active" column="active" type="java.lang.Boolean"></property>
+		<property name="registerTime" column="registerTime" type="java.sql.Timestamp"></property>
+		<property name="activeString" column="activeString" type="java.lang.String"></property>
+		<property name="email" column="email" type="java.lang.String"></property>
+		<set name="topics" cascade="all-delete-orphan" lazy="true" inverse="true">
+			<key column="cx_user_oid"></key>
+			<one-to-many class="Topic"/>
+		</set>
+		<set name="replies" cascade="all-delete-orphan" lazy="true" inverse="true">
+			<key column="cx_user_oid"></key>
+			<one-to-many class="Reply"/>
+		</set>
+		<set name="forums" cascade="none" lazy="true" inverse="true">
+			<key column="cx_user_oid"></key>
+			<one-to-many class="Forum"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.input{
+border-left:0;
+border-right:0;
+border-top:0;
+border-bottom:1;
+border-bottom-color:#0000CC
+}
+a{
+	text-decoration:none
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.forum.bean">
+	<class name="com.forum.bean.Forum" table="cx_forum">
+		<id name="id" column="cx_forum_oid" type="long">
+			<generator class="sequence" />
+		</id>
+		<property name="name" column="name" length="255" type="java.lang.String" />
+		<property name="moderatorName" column="moderatorName" type="java.lang.String"></property>
+		<property name="description" column="description" type="java.lang.String"/>
+		<property name="topicNum" column="topicNum" type="long"></property>
+		<property name="replyNum" column="replyNum" type="long"></property>
+		<property name="order" column="orderColumn" type="java.lang.Integer"></property>
+		<property name="todayTopicNum" column="todayTopicNum" type="java.lang.Integer"></property>
+		<property name="lastPostTopicName" column="lastPostTopicName" type="java.lang.String"></property>
+		<property name="lastPostAuthorName" column="lastPostAuthorName" type="java.lang.String"></property>
+		<property name="lastPostDate" column="lastPostDate" type="java.sql.Timestamp"></property>
+		<many-to-one name="parent" column="cx_parent_oid" class="Forum"></many-to-one>
+		<many-to-one name="moderator" column="cx_user_oid" class="User"></many-to-one>
+		<set name="topics" cascade="all-delete-orphan" inverse="true" table="cx_topic" order-by="cx_topic_id " lazy="true">
+			<key column="cx_forum_oid"></key>
+			<one-to-many class="Topic"/>
+		</set>
+		<set name="children" cascade="all-delete-orphan" inverse="true" table="cx_forum" order-by="orderColumn asc" lazy="false">
+			<key column="cx_parent_oid" />
+			<one-to-many class="Forum" />
+		</set>
+	</class>
+</hibernate-mapping>

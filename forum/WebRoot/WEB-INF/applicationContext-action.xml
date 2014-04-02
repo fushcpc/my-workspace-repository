@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">  
+    <!--开始Forum的配置-->
+    <bean id="addForum" class="com.forum.action.forum.AddForum" scope="prototype">
+        <property name="service" ref="forumService"/>
+    </bean>
+    <bean id="deleteForum" class="com.forum.action.forum.DeleteForum" scope="prototype">
+        <property name="service" ref="forumService"/>
+    </bean>
+    <bean id="updatePForum" class="com.forum.action.forum.UpdatePForum" scope="prototype">
+        <property name="service" ref="forumService"/>
+    </bean>
+    <bean id="updateForum" class="com.forum.action.forum.UpdateForum" scope="prototype">
+        <property name="service" ref="forumService"/>
+    </bean>
+    <bean id="listForums" class="com.forum.action.forum.ListForums" scope="prototype">
+        <property name="service" ref="forumService"/>
+    </bean>
+    <!--结束Forum的配置-->
+    <!--开始Reply的配置-->
+    <bean id="addReply" class="com.forum.action.reply.AddReply" scope="prototype">
+        <property name="service" ref="replyService"/>
+    </bean>
+    <bean id="deleteReply" class="com.forum.action.reply.DeleteReply" scope="prototype">
+        <property name="service" ref="replyService"/>
+    </bean>
+    <bean id="updatePReply" class="com.forum.action.reply.UpdatePReply" scope="prototype">
+        <property name="service" ref="replyService"/>
+    </bean>
+    <bean id="updateReply" class="com.forum.action.reply.UpdateReply" scope="prototype">
+        <property name="service" ref="replyService"/>
+    </bean>
+    <bean id="listReplys" class="com.forum.action.reply.ListReplys" scope="prototype">
+        <property name="service" ref="replyService"/>
+    </bean>
+    <!--结束Reply的配置-->
+    <!--开始Topic的配置-->
+    <bean id="addTopic" class="com.forum.action.topic.AddTopic" scope="prototype">
+        <property name="service" ref="topicService"/>
+        <property name="forumService" ref="forumService"></property>
+    </bean>
+    <bean id="deleteTopic" class="com.forum.action.topic.DeleteTopic" scope="prototype">
+        <property name="service" ref="topicService"/>
+    </bean>
+    <bean id="updatePTopic" class="com.forum.action.topic.UpdatePTopic" scope="prototype">
+        <property name="service" ref="topicService"/>
+    </bean>
+    <bean id="updateTopic" class="com.forum.action.topic.UpdateTopic" scope="prototype">
+        <property name="service" ref="topicService"/>
+    </bean>
+    <bean id="listTopics" class="com.forum.action.topic.ListTopics" scope="prototype">
+        <property name="service" ref="topicService"/>
+    </bean>
+    <bean id="showTopic" class="com.forum.action.topic.ShowTopic" scope="prototype">
+    	<property name="service" ref="topicService"></property>
+    	<property name="replyService" ref="replyService"></property>
+    </bean>
+    <!--结束Topic的配置-->
+    <!--开始User的配置-->
+    <bean id="addUser" class="com.forum.action.user.AddUser" scope="prototype">
+        <property name="service" ref="userService"/>
+    </bean>
+    <bean id="deleteUser" class="com.forum.action.user.DeleteUser" scope="prototype">
+        <property name="service" ref="userService"/>
+    </bean>
+    <bean id="updatePUser" class="com.forum.action.user.UpdatePUser" scope="prototype">
+        <property name="service" ref="userService"/>
+    </bean>
+    <bean id="updateUser" class="com.forum.action.user.UpdateUser" scope="prototype">
+        <property name="service" ref="userService"/>
+    </bean>
+    <bean id="listUsers" class="com.forum.action.user.ListUsers" scope="prototype">
+        <property name="service" ref="userService"/>
+    </bean>
+    <!--结束User的配置-->
+</beans>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--开始Forum的Action配置-->
+    <package name="Forum" namespace="/Forum" extends="struts-default">
+        <action name="addForum" class="addForum">
+            <result type="redirectAction">
+                <param name="actionName">listForums</param>
+            </result>
+        </action>
+        <action name="listForums" class="listForums">
+            <result>listForumFront.jsp</result>
+        </action>
+        <action name="deleteForum" class="deleteForum">
+            <result type="redirectAction">
+                <param name="actionName">listForums</param>
+            </result>
+        </action>
+        <action name="updatePForum" class="updatePForum">
+            <result>updateForum.jsp</result>
+        </action>
+        <action name="updateForum" class="updateForum">
+            <result type="redirectAction">
+                <param name="actionName">listForums</param>
+            </result>
+        </action>
+    </package>
+    <!--结束Forum的Action配置-->
+    <!--开始Reply的Action配置-->
+    <package name="Reply" namespace="/Reply" extends="struts-default">
+        <action name="addReply" class="addReply">
+            <result type="redirectAction">
+                <param name="actionName">../Topic/showTopic</param>
+                <param name="topicId">${topicId}</param>
+                <param name="forumId">${forumId}</param>
+            </result>
+        </action>
+        <action name="listReplys" class="listReplys">
+            <result>listReplys.jsp</result>
+        </action>
+        <action name="deleteReply" class="deleteReply">
+            <result type="redirectAction">
+                <param name="actionName">listReplys</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+                <param name="forumId">${forumId}</param>
+            </result>
+        </action>
+        <action name="updatePReply" class="updatePReply">
+            <result>updateReply.jsp</result>
+        </action>
+        <action name="updateReply" class="updateReply">
+            <result type="redirectAction">
+                <param name="actionName">listReplys</param>
+            </result>
+        </action>
+    </package>
+    <!--结束Reply的Action配置-->
+    <!--开始Topic的Action配置-->
+    <package name="Topic" namespace="/Topic" extends="struts-default">
+        <action name="addTopic" class="addTopic">
+            <result type="redirectAction">
+                <param name="actionName">listTopics</param>
+                <param name="forumId">${forumId}</param>
+            </result>
+        </action>
+        <action name="listTopics" class="listTopics">
+            <result>listTopics.jsp</result>
+        </action>
+        <action name="deleteTopic" class="deleteTopic">
+            <result type="redirectAction">
+                <param name="actionName">listTopics</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+                <param name="forumId">${forumId}</param>
+            </result>
+        </action>
+        <action name="updatePTopic" class="updatePTopic">
+            <result>updateTopic.jsp</result>
+        </action>
+        <action name="updateTopic" class="updateTopic">
+            <result type="redirectAction">
+                <param name="actionName">listTopics</param>
+            </result>
+        </action>
+        <action name="showTopic" class="showTopic">
+        	<result>showTopic.jsp</result>
+        </action>
+    </package>
+    <!--结束Topic的Action配置-->
+    <!--开始User的Action配置-->
+    <package name="User" namespace="/User" extends="struts-default">
+        <action name="addUser" class="addUser">
+            <result type="redirectAction">
+                <param name="actionName">listUsers</param>
+            </result>
+        </action>
+        <action name="listUsers" class="listUsers">
+            <result>listUsers.jsp</result>
+        </action>
+        <action name="deleteUser" class="deleteUser">
+            <result type="redirectAction">
+                <param name="actionName">listUsers</param>
+                <param name="start">${start}</param>
+                <param name="range">${range}</param>
+            </result>
+        </action>
+        <action name="updatePUser" class="updatePUser">
+            <result>updateUser.jsp</result>
+        </action>
+        <action name="updateUser" class="updateUser">
+            <result type="redirectAction">
+                <param name="actionName">listUsers</param>
+            </result>
+        </action>
+    </package>
+    <!--结束User的Action配置-->
+</struts>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hibernatetools" basedir="." default="run.persistence.export">
+	<property file="build.properties"></property>
+	<property file="db.properties"></property>
+	
+	<target name="init">
+		<!--ant运行所需要的java文件有两部分组成，一个是自已写的java文件，另一个是引用的jar包 -->
+		<path id="ant.run.lib.path">
+			<pathelement path="${classes}"/>
+			<fileset dir="${lib}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+	</target>
+	
+	<target name="set.hibernate.mappingfiles">
+			<fileset id="hibernate.mapping.files" dir="${dbconfig}">
+				<include name="**/*.hbm.xml" />
+			</fileset>
+			<!--因为在java主程序运行的时候，传递的参数是按空格来区别的，所以将各个hbm文件名用空格来分割-->
+			<pathconvert property="hibernate.mappings" refid="hibernate.mapping.files" pathsep=" ">
+			</pathconvert>
+	</target> 
+	 
+	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="ant.run.lib.path" />
+
+	<target name="run.persistence.export" depends="init,set.hibernate.mappingfiles">
+		<!--相当于File.mkdirs()这个方法-->
+		<mkdir dir="${classes}"/>
+		
+		<!--生成bean -->
+		<hibernatetool>
+			<configuration configurationfile="${dbconfig}/hibernate.cfg.xml" />
+			<hbm2java jdk5="true" destdir="${src}"/>
+			<!-- 
+			<hbm2dao/>
+			<hbm2ddl export="false" outputfilename="../dll/documentSQL.DLL" format="true" drop="true" />
+			<hbm2doc destdir="../doc"/>
+			-->
+		</hibernatetool>
+		
+		
+		<!--生成dao接口 -->
+		<!--fork='true'表示各个java任务之间使用的是同一个JVM，而不是每一个java任务使用一个-->
+		<java classname="com.happycoding.hbm2dao.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--output=${src}"/>
+			<arg line="--templateName=${daoTemplateName}"/>
+			<!--一开始的时候ant不能解析下面的参数，后来加了OA工程的所有的JAR后，就可以了，原因不详 -->
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成dao实现类 -->
+		<java classname="com.happycoding.hbm2dao.impl.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--output=${src}"/>
+			<arg line="--templateName=${daoImplTemplateName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Service接口 -->
+		<java classname="com.happycoding.hbm2service.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--output=${src}"/>
+			<arg line="--templateName=${serviceTemplateName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Service实现类 -->
+		<java classname="com.happycoding.hbm2service.impl.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--output=${src}"/>
+			<arg line="--templateName=${serviceImplTemplate}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Spring DB配置文件 infrastructure-->
+		<java classname="com.happycoding.hbm2xml.infrastructure.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${web-inf}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--templateName=${infrastructureFileName}"/>
+			<arg line="--dbPropPath=${dbPropPath}"/>
+			<arg line="--hbPropPath=${hbPropPath}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Spring DAO配置-->
+		<java classname="com.happycoding.hbm2xml.dao.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${web-inf}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--templateName=${daoFileName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Spring Service配置-->
+		<java classname="com.happycoding.hbm2xml.service.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${web-inf}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--fileName=${serviceFileName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--还需要添加javac来编译源文件-->
+		<javac srcdir="${src}" destdir="${classes}" nowarn="on" encoding="UTF-8" debug="${java.debug}" classpathref="ant.run.lib.path"></javac>
+		 
+		
+		<!--生成Action -->
+		<java classname="com.happycoding.hbm2action.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--output=${src}"/>
+			<arg line="--addTemplate=${addActionTemplate}"/>
+			<arg line="--deleteTemplate=${deleteActionTemplate}"/>
+			<arg line="--listTemplate=${listActionTemplate}"/>
+			<arg line="--updatePTemplate=${updatePActionTemplate}"/>
+			<arg line="--updateTemplate=${updateActionTemplate}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Spring Action配置-->
+		<java classname="com.happycoding.hbm2xml.action.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${web-inf}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--springActionCfgTemplateName=${springActionCfgTemplateName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成Struts.xml配置-->
+		<java classname="com.happycoding.hbm2xml.struts.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${src}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--strutsCfgTemplateName=${strutsCfgTemplateName}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+		
+		<!--生成JSP-->
+		<java classname="com.happycoding.hbm2jsp.CodeGenerator" fork="true" failonerror="true">
+			<classpath refid="ant.run.lib.path"></classpath>
+			<sysproperty key="file.encoding" value="UTF-8"/>
+			<arg line="--outputPath=${webRoot}"/>
+			<arg line="--JSPPropFilePath=${JSPProp}"/>
+			<arg line="--templatePath=${templatePath}"/>
+			<arg line="--addTemplate=${addJspTemplate}"/>
+			<arg line="--listTemplate=${listJspTemplate}"/>
+			<arg line="--updateTemplate=${updateJspTemplate}"/>
+			<arg line="${hibernate.mappings}"/>
+		</java>
+
+		<!--还需要添加javac来编译源文件-->
+		<javac srcdir="${src}" destdir="${classes}" nowarn="on" encoding="UTF-8" debug="${java.debug}" classpathref="ant.run.lib.path"></javac>
+	</target>
+	
+</project>

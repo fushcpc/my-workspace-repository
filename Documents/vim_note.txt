@@ -1,0 +1,46 @@
+dw: delete current word, but first thing for this command is the cursor has to be the first character of the word.
+d$: delete to the end of the line
+0: move to the end of the line.
+d3w: delete the 3 words after the cursor. d4w will delete 4 words
+U: To undo all the changes on a line
+p: put the line which deleted by command 'dd' under the cursor line
+r: Type  rx  to replace the character at the cursor with  x
+ce: To change until the end of a word, type  ce
+c$: Delete the context from cursor to the end of the line, and go the input mode
+ctrl+g : To show your location in the file and the file status.
+G: Go to the bottom of the file.
+gg: To move you to the start of the file.
+G: Type the number of the line you want to go and then G, this will go to the line you wann to go.
+
+/: search for the phrase from forward
+?: search for the phrase from backward
+n: search the same phrase again, simple type n
+N: search the same phrase in the opposite direction, type N
+ctrl+o: To go back to where you came from. Repeat to go back further
+ctrl+i: To go forward
+%: to find a matching ),], or }. This is very useful in debugging a program with unmatched parentheses
+:s/old/new/  to substitute 'new' for 'old', only change the first occurrence
+:s/old/new/g to substitute 'new' for 'old', will change all the occurrences in the line
+:%s/old/new/g to change every occurrence in the whole file
+:%s/old/new/gc to find every occurrence in the whole file, with a prompt whether to substitute or not
+o: to open a line below the cursor and place you in insert mode.
+O: to open a line above the cursor and place you in insert mode.
+a: to insert text AFTER the cursor
+i: to insert text BEFORE the cursor
+A: to insert text at the end of line
+R: replace more than one character
+r: replace one character of cursor position
+
+copy and paste: 
+1. start visual mode with v and move the cursor to select the text you want to copy
+2. Type y to yank(copy) the highlighted text.
+3. Go to the position which you want to paste your text
+4. Type p to put(paste) the text
+
+set option:
+:set number(set nu): show up line number
+:set ic: set ignores case when searching or substitute
+:set hls is: set lisearch and incsearch option
+:set noic: disable ignoring case 
+if you want to ignore case for just one search command, user \c in the phrase: /youString\c
+

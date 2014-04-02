@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.forum.bean">
+	<class name="com.forum.bean.Topic" table="cx_topic">
+		<id name="id" column="cx_topic_oid" type="long">
+			<generator class="sequence" />
+		</id>
+		<property name="subject" column="subject" type="java.lang.String" ></property>
+		<property name="content" column="content" type="text"></property>
+		<property name="authorName" column="authorName" type="java.lang.String"></property>
+		<property name="postTime" column="postTime" type="java.sql.Timestamp"></property>
+		<property name="replyNum" column="replyNum" type="long"></property>
+		<property name="viewNum" column="viewNum" type="long"></property>
+		<many-to-one name="forum" column="cx_forum_oid" class="com.forum.bean.Forum" ></many-to-one>
+		<many-to-one name="author" column="cx_user_oid" class="User"></many-to-one>
+		<property name="lastReplyTime" column="lastReplyTime_" type="java.sql.Timestamp"></property>
+		<set name="replies" cascade="all-delete-orphan" lazy="true" inverse="true">
+			<key column="cx_topic_oid"></key>
+			<one-to-many class="Reply"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           
+      <bean id="personService" class="com.jimmy.spring.test.service.impl.PersonServiceImpl"/>
+	  <bean id = "factoryPersonService" class="com.jimmy.spring.test.service.factory.PersonServiceFactory" factory-method="createOrder"/>       
+	  
+	  <bean id="factoryBean" class="com.jimmy.spring.test.service.factory.PersonServiceFactory"/>    
+      <bean id = "staticFactoryPersonService" factory-bean="factoryBean" factory-method="createOtherOrder"/>   
+      
+      
+      <bean id="personServiceSingleton" class="com.jimmy.spring.test.service.impl.PersonServiceImpl"/>
+      <bean id="personServicePrototype" class="com.jimmy.spring.test.service.impl.PersonServiceImpl" scope="prototype"/>  
+</beans>

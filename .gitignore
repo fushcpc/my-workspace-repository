@@ -1,0 +1,10 @@
+.metadata
+build
+*.class
+*.jar
+*.war
+*.ear
+.svn
+.settings
+classes
+lib

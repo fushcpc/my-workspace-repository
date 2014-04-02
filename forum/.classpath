@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="hbm"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/commons-pool.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/freemarker-2.3.8.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/ognl-2.6.11.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/slf4j-nop-1.5.8.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/spring.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/spring-webmvc-struts.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/struts2-core-2.0.14.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/struts2-spring-plugin-2.0.14.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/Projects/forum/xwork-2.0.7.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/apache-tomcat-7.0.37/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="D:/DevTools/apache-tomcat-7.0.37/lib/servlet-api.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

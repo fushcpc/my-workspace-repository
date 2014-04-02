@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connections:connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connections="http://www.ibm.com/websphere/wdo/connections">
+  <connection id="Derby Sample Connection">
+    <development xsi:type="connections:rsc-live-connection" id="Derby Sample Connection_dev" name="Derby Sample Connection"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="${DERBY_JDBC_DRIVER_PATH}/derby.jar" id="Derby Sample Connection_runtime" classname="org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource" database-location="C:\workspace\.metadata\.plugins\com.ibm.datatools.db2.cloudscape.driver\SAMPLE" database-name="SAMPLE" jndi-name="jdbc/Derby Sample Connection" resource-reference-name="Derby Sample Connection" server-name="derby:C:\workspace\.metadata\.plugins\com.ibm.datatools.db2.cloudscape.driver\SAMPLE" sql-vendor-type="36" userid=""/>
+  </connection>
+  <connection id="EJB3BankDerby">
+    <development xsi:type="connections:rsc-live-connection" id="EJB3BankDerby_dev" name="EJB3BankDerby"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="${DERBY_JDBC_DRIVER_PATH}/derby.jar" id="EJB3BankDerby_runtime" classname="org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource" database-location="C:\Users\Administrator\MyDB" database-name="MyDB" jndi-name="jdbc/EJB3BankDerby" resource-reference-name="EJB3BankDerby" server-name="derby:C:\Users\Administrator\MyDB" sql-vendor-type="50" userid=""/>
+  </connection>
+</connections:connections>

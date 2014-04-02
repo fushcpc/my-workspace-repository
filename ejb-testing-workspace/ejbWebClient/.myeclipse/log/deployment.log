@@ -1,0 +1,59 @@
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 22:57:30 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:12:34 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+WASX7357I: By request, this scripting client is not connected to any server process. Certain configuration and application operations will be available in local mode.
+WASX7303I: The following options are passed to the scripting environment and are available as arguments that are stored in the argv variable: "[ejbWebClient]"
+ejbWebClient
+WASX7017E: Exception received while running file "C:\MyEclipse\Common\plugins\com.genuitec.eclipse.blue.websphere7_9.0.0.me201211011550\uninstallApplication.jacl"; exception information: com.ibm.ws.scripting.ScriptingException: WASX7280E: An application with name "ejbWebClient" does not exist.
+
+--------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment END project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:12:39 CST 2013
+--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:12:44 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:31:37 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+WASX7357I: By request, this scripting client is not connected to any server process. Certain configuration and application operations will be available in local mode.
+WASX7303I: The following options are passed to the scripting environment and are available as arguments that are stored in the argv variable: "[ejbWebClient]"
+ejbWebClient
+WASX7017E: Exception received while running file "C:\MyEclipse\Common\plugins\com.genuitec.eclipse.blue.websphere7_9.0.0.me201211011550\uninstallApplication.jacl"; exception information: com.ibm.ws.scripting.ScriptingException: WASX7280E: An application with name "ejbWebClient" does not exist.
+
+--------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment END project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:31:43 CST 2013
+--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:31:43 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:55:41 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+WASX7357I: By request, this scripting client is not connected to any server process. Certain configuration and application operations will be available in local mode.
+WASX7303I: The following options are passed to the scripting environment and are available as arguments that are stored in the argv variable: "[ejbWebClient]"
+ejbWebClient
+WASX7017E: Exception received while running file "C:\MyEclipse\Common\plugins\com.genuitec.eclipse.blue.websphere7_9.0.0.me201211011550\uninstallApplication.jacl"; exception information: com.ibm.ws.scripting.ScriptingException: WASX7280E: An application with name "ejbWebClient" does not exist.
+
+--------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment END project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:55:47 CST 2013
+--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Thu Jul 18 23:55:47 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Fri Jul 19 00:05:27 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------
+WASX7357I: By request, this scripting client is not connected to any server process. Certain configuration and application operations will be available in local mode.
+WASX7303I: The following options are passed to the scripting environment and are available as arguments that are stored in the argv variable: "[ejbWebClient]"
+ejbWebClient
+WASX7017E: Exception received while running file "C:\MyEclipse\Common\plugins\com.genuitec.eclipse.blue.websphere7_9.0.0.me201211011550\uninstallApplication.jacl"; exception information: com.ibm.ws.scripting.ScriptingException: WASX7280E: An application with name "ejbWebClient" does not exist.
+
+--------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment END project: ejbWebClient server: websphere7Server#AppSrv01 time: Fri Jul 19 00:05:33 CST 2013
+--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+MyEclipse: deployment START packaged project: ejbWebClient server: websphere7Server#AppSrv01 time: Fri Jul 19 00:05:47 CST 2013
+-------------------------------------------------------------------------------------------------------------------------------

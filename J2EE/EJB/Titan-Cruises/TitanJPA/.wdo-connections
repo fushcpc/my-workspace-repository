@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connections:connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connections="http://www.ibm.com/websphere/wdo/connections">
+  <connection id="TITAN">
+    <development xsi:type="connections:rsc-live-connection" id="TITAN_dev" name="TITAN"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="C:\oracle\app\Administrator\product\11.2.0\dbhome_1\jdbc\lib\ojdbc6.jar" id="TITAN_runtime" classname="oracle.jdbc.pool.OracleConnectionPoolDataSource" database-name="orcl" jndi-name="jdbc/TITAN" port-number="1521" resource-reference-name="TITAN" server-name="localhost" sql-vendor-type="52" userid="titan"/>
+  </connection>
+</connections:connections>

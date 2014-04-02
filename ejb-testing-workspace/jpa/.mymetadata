@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="EJB"
+  name="jpa"
+  id="myeclipse.1374887012837"
+  j2ee-spec="5.0"
+  archive="jpa.jar" />
+

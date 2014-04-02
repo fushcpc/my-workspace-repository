@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd">
+  <display-name>TitanEJB </display-name>
+  <enterprise-beans>
+  	<session>
+  		<ejb-name>ProcessPaymentBean</ejb-name>
+  		<remote>com.titan.processpayment.ProcessPaymentRemote</remote>
+  		<local>com.titan.processpayment.ProcessPaymentLocal</local>
+  		<ejb-class>com.titan.processpayment.ProcessPaymentBean</ejb-class>
+  		<session-type>Stateless</session-type>
+  		<env-entry>
+  			<env-entry-name>min</env-entry-name>
+  			<env-entry-type>java.lang.Integer</env-entry-type>
+  			<env-entry-value>250</env-entry-value>
+  			<injection-target>
+  				<injection-target-class>com.titan.processpayment.ProcessPaymentBean</injection-target-class>
+  				<injection-target-name>minCheckNumber</injection-target-name>
+  			</injection-target>
+  		</env-entry>
+  		<resource-ref>
+  			<res-ref-name>theDataSource</res-ref-name>
+  			<res-type>javax.sql.DataSource</res-type>
+  			<res-auth>Container</res-auth>
+  			<mapped-name>TitanDataSource</mapped-name>
+  			<injection-target>
+  				<injection-target-class>com.titan.processpayment.ProcessPaymentBean</injection-target-class>
+  				<injection-target-name>TitanDataSource</injection-target-name>
+  			</injection-target>
+  		</resource-ref>
+  	</session>
+  	
+  	<session>
+  		<ejb-name>TravelAgentBean</ejb-name>
+  		<remote>com.titan.travelagent.TravelAgentRemote</remote>
+  		<ejb-class>com.titan.travelagent.TravelAgentBeanStateful</ejb-class>
+  		<session-type>Stateful</session-type>
+  		<ejb-local-ref>
+  			<ejb-ref-name>ejb/spc/titan/ProcessPaymentBean</ejb-ref-name>
+  			<ejb-ref-type>Session</ejb-ref-type>
+  			<local>com.titan.processpayment.ProcessPaymentLocal</local>
+  			<injection-target>
+  				<injection-target-class>com.titan.travelagent.TravelAgentBeanStateful</injection-target-class>
+  				<injection-target-name>processPayment</injection-target-name>
+  			</injection-target>
+  		</ejb-local-ref>
+  		<persistence-context-ref>
+  			<persistence-context-ref-name>jdbc/TitanDataSource</persistence-context-ref-name>
+  			<persistence-unit-name>TitanDataSource</persistence-unit-name>
+  			<injection-target>
+  				<injection-target-class>com.titan.travelagent.TravelAgentBeanStateful</injection-target-class>
+  				<injection-target-name>entityManager</injection-target-name>
+  			</injection-target>
+  		</persistence-context-ref>
+  	</session>
+  </enterprise-beans>
+  <ejb-client-jar>TitanEJBClient.jar</ejb-client-jar> 
+ </ejb-jar>
